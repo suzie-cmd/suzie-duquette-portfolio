@@ -23,9 +23,9 @@
   // To change the password: hash the new one and replace this.
   //   echo -n 'YourNewPassword' | shasum -a 256
   var EXPECTED_HASH =
-    'ba8667e175dbd117c8641c5327edb2940beab7b0c2cf6ef198754a97cbcee0bf';
+    '3fabf61eb488ef3790df5a3ce830844e39cd1839420e3f8419a6189be372fde1';
 
-  var STORAGE_KEY = 'portfolio_unlock_v1';
+  var STORAGE_KEY = 'portfolio_unlock_v2';
 
   function unlock() {
     document.documentElement.classList.remove('locked');
