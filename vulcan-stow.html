@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapping Operator Workflows and Exceptions — Vulcan Stow — Suzie Duquette</title>
+  <meta name="description" content="A shared outcome framework for mapping operator tasks and exception paths across Amazon Robotics — applied to Vulcan Stow.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..500&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23F5F2EC'/%3E%3Ctext x='50' y='68' text-anchor='middle' font-family='Georgia, serif' font-size='62' fill='%23161616' font-style='italic'%3Es%3C/text%3E%3C/svg%3E">
+  <!-- Password gate (soft client-side lock) -->
+  <script>document.documentElement.classList.add('locked');</script>
+  <style>html.locked body { visibility: hidden; }</style>
+  <script src="assets/js/password-gate.js" defer></script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav__inner">
+    <a class="nav__brand" href="index.html">Suzie Duquette<small>UX · Human–Machine Systems</small></a>
+    <nav class="nav__links" aria-label="Primary">
+      <a class="nav__link" href="index.html#work">Work</a>
+      <a class="nav__link" href="about.html">About</a>
+      <a class="nav__link" href="index.html#contact">Contact</a>
+      <a class="btn btn--ghost" href="resume.pdf" target="_blank" rel="noopener">Résumé</a>
+    </nav>
+  </div>
+</header>
+
+<section class="cs-hero">
+  <div class="container">
+    <div class="reveal">
+      <p class="eyebrow">Case 03 · Amazon Robotics</p>
+      <h1 class="cs-hero__title" style="margin-top: var(--s-4);">Mapping operator workflows and <em>exceptions</em> across robotic workstations.</h1>
+      <p class="cs-hero__lede lede">Vulcan is Amazon's first robot with a sense of touch. It picks and stows roughly 75% of items at the fulfillment center where it operates — but it still depends on a human operator to feed and validate every item inducted. I led the operator-side UX for the Vulcan Stow workcell at the Spokane site.</p>
+    </div>
+
+    <video class="cs-cover-img reveal" src="assets/images/v2/cs3/cover.mp4" autoplay muted loop playsinline preload="metadata" style="aspect-ratio: 16 / 9; object-fit: cover; background: var(--paper-deep);"></video>
+
+    <div class="cs-summary reveal">
+      <div><h4>Role</h4><p>Senior UX Lead — operator-side UX</p></div>
+      <div><h4>Team</h4><p>Robotics, hardware, ops, program</p></div>
+      <div><h4>Timeline</h4><p>2024 – Present</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Vulcan context -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Where robots meet operators</h2>
+      <p>Vulcan automates part of the stow workflow. While the robot stows items into pods, a human still has to feed it — scanning each item, checking eligibility, and routing the ones the robot can't safely handle.</p>
+    </div>
+
+    <div class="three-col">
+      <div class="three-col__item reveal">
+        <h4>The robot's job</h4>
+        <p>Vulcan stows inventory into the top and bottom rows of storage pods so associates can stay in their power zone — no ladders, no bending.</p>
+      </div>
+      <div class="three-col__item reveal">
+        <h4>The operator's job</h4>
+        <p>A human feeds the robot: scans each item, checks eligibility, and re-routes the ones Vulcan can't safely or successfully stow.</p>
+      </div>
+      <div class="three-col__item reveal">
+        <h4>Why UX matters here</h4>
+        <p>Every item is a decision: is this Vulcan-eligible? Is it damaged? Is the barcode readable? Get it wrong and a defect lands on the storage floor.</p>
+      </div>
+    </div>
+
+    <div class="gallery gallery--2 reveal">
+      <img src="assets/images/v2/cs3/cs3-workcell.jpg" alt="The Vulcan Stow workcell — robot arm and induct conveyor" style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-lg); display: block;">
+      <img src="assets/images/v2/cs3/cs3-associate.jpeg" alt="An associate working alongside Vulcan — scanning, inducting, recovering items" style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-lg); display: block;">
+    </div>
+
+    <p class="lede reveal" style="margin-top: var(--s-5);">
+      I led the operator-side UX for Vulcan Stow — building a shared outcome framework (CXOs) that made every human task and every exception path explicit across Amazon Robotics programs.
+    </p>
+  </div>
+</section>
+
+<!-- Problem -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Exception paths were treated as edge cases</h2>
+      <p>Without a shared model for operator outcomes, failure-state UX consistently lost prioritization to happy-path features — across every program, not just Vulcan.</p>
+    </div>
+
+    <ul class="bullets bullets--x reveal">
+      <li><span>Feature requests prioritized without measurable operator success criteria</span></li>
+      <li><span>Workflow exceptions (sideline, problem solve, damaged item) hidden in long backlog tickets</span></li>
+      <li><span>Each robotic program designed error states independently — no shared language with ToteASRS, Proteus, Decant, or Nike Induct</span></li>
+      <li><span>Limited instrumentation to validate whether design changes improved field outcomes</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- CXO Framework -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>A framework for operator outcomes</h2>
+      <p>I defined Customer eXperience Outcomes (CXOs) — data-supported statements describing what an operator needs to accomplish at each step of a workflow, including failure states.</p>
+    </div>
+
+    <ul class="bullets reveal">
+      <li data-num="01"><span><strong>Task step</strong> — the discrete step within the workflow, including exception sub-tasks</span></li>
+      <li data-num="02"><span><strong>Outcome</strong> — a specific, measurable statement of what the operator needs to do at that step</span></li>
+      <li data-num="03"><span><strong>Modifier</strong> — qualifying conditions (e.g., quickly, accurately, comfortably, safely)</span></li>
+      <li data-num="04"><span><strong>KPI</strong> — the program metric this outcome moves (e.g., units per hour, rework rate)</span></li>
+      <li data-num="05"><span><strong>Role</strong> — the operator role that depends on this outcome</span></li>
+    </ul>
+
+    <!-- Native annotated CXO card — Scan Item example -->
+    <figure class="figure reveal" style="background: var(--paper-pop); padding: var(--s-7) var(--s-5) var(--s-5); border-radius: var(--radius-lg); margin-top: var(--s-5);">
+      <p style="text-align: center; font-size: var(--fs-12); letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); font-weight: 500; margin-bottom: 6px;">One example of a CXO</p>
+      <h3 style="text-align: center; font-family: var(--font-display); font-size: var(--fs-32); font-weight: 350; letter-spacing: -0.02em; color: var(--ink); margin-bottom: var(--s-5);">Scan item<span style="font-size: var(--fs-14); color: var(--accent-deep); font-style: italic; margin-left: 12px; vertical-align: 6px;">— task step</span></h3>
+      <div class="cxo-annotated">
+        <div class="cxo-annotated__card">
+          <p class="cxo-annotated__kpi"><span class="cxo-annotated__num">04</span>Seek time<span style="margin-left: 8px; font-style: italic; font-family: var(--font-display); letter-spacing: 0; text-transform: none; color: var(--accent-deep); font-size: var(--fs-14); font-weight: 400;">— KPI</span></p>
+          <h4 class="cxo-annotated__step">Recognize a valid item scan<span style="margin-left: 10px; font-style: italic; font-family: var(--font-display); color: var(--accent-deep); font-size: var(--fs-14); font-weight: 400;">— outcome</span></h4>
+          <p class="cxo-annotated__outcome">… easily</p>
+          <p class="cxo-annotated__outcome">… quickly<span style="margin-left: 10px; font-style: italic; font-family: var(--font-display); color: var(--accent-deep); font-size: var(--fs-14); font-weight: 400;">— modifiers</span></p>
+          <span class="cxo-annotated__role">Associates<span style="margin-left: 8px; font-style: italic; font-family: var(--font-display); color: var(--accent-deep); font-size: var(--fs-12); font-weight: 400;">— role</span></span>
+        </div>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<!-- Workflow + Exceptions -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Mapping the workflow — and its exceptions</h2>
+      <p>Every operator workflow begins as a happy-path sequence — but the real determinant of throughput is how the operator handles the failure states the happy path doesn't cover.</p>
+    </div>
+
+    <div class="flow reveal">
+      <div class="flow__row">
+        <span class="flow__chip flow__chip--num" data-num="01">Sign in</span>
+        <span class="flow__arrow"></span>
+        <span class="flow__chip flow__chip--num" data-num="02">Stage active tote</span>
+        <span class="flow__arrow"></span>
+        <span class="flow__chip flow__chip--num" data-num="03">Singulate item</span>
+        <span class="flow__arrow"></span>
+        <span class="flow__chip flow__chip--num" data-num="04">Scan item</span>
+        <span class="flow__arrow"></span>
+        <span class="flow__chip flow__chip--num" data-num="05">Place on induct conveyor</span>
+      </div>
+      <div class="flow__branches">
+        <span class="flow__chip flow__chip--exception">5x. Sideline ineligible item</span>
+        <span class="flow__chip flow__chip--exception">5xx. Sideline problem-solve item</span>
+      </div>
+    </div>
+
+    <p style="color: var(--ink-soft); max-width: 50em; margin-top: var(--s-3);">
+      Sidelining an ineligible item and surfacing a problem-solve item are distinct sub-tasks — each with its own outcomes, UI, and recovery path.
+    </p>
+
+    <div class="pullquote reveal">
+      <p>Design for failure, not around it.</p>
+      <footer>Design principle</footer>
+    </div>
+  </div>
+</section>
+
+<!-- Touchpoint map -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Resolving each step into its touchpoints</h2>
+      <p>From the workflow, I built a touchpoint diagram identifying every component required to support an outcome — UI screen, UI button, physical button, hardware component, light or audio cue. High-risk markers call out where a single missed scan becomes a downstream defect.</p>
+    </div>
+
+    <figure class="figure reveal">
+      <img src="assets/images/v2/cs3/touchpoints.png" alt="Touchpoint diagram of the Vulcan Stow inductor workflow showing every UI screen, hardware component, signal, and high-risk marker">
+      <figcaption>The diagram resolves each task into the components needed to achieve the outcome — making the screen surface, hardware, and signaling required for each step explicit and reviewable.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- Outcomes mapping -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Determining outcomes for every sub-task</h2>
+      <p>I facilitated cross-functional body-storming workshops to enumerate the outcomes an operator needs to achieve — at every task and every exception. Participants: UX, product, engineering, ops, and operator SMEs from each affected program.</p>
+    </div>
+
+    <!-- Task-flow recap (referenced from earlier in the page) -->
+    <p style="color: var(--ink-soft); max-width: 50em;">Starting from the workflow diagram, each task becomes a column and each operator outcome becomes a row — happy-path and exception alike:</p>
+    <div class="flow reveal" style="margin-top: var(--s-4);">
+      <div class="flow__row">
+        <span class="flow__chip flow__chip--num" data-num="01">Sign in</span>
+        <span class="flow__arrow"></span>
+        <span class="flow__chip flow__chip--num" data-num="02">Stage tote</span>
+        <span class="flow__arrow"></span>
+        <span class="flow__chip flow__chip--num" data-num="03">Singulate</span>
+        <span class="flow__arrow"></span>
+        <span class="flow__chip flow__chip--num" data-num="04">Scan item</span>
+        <span class="flow__arrow"></span>
+        <span class="flow__chip flow__chip--num" data-num="05">Place on conveyor</span>
+      </div>
+    </div>
+
+    <figure class="figure reveal">
+      <img src="assets/images/v2/cs3/outcomes-mapping.jpg" alt="Body-storming workshop output: a matrix of operator outcomes mapped to each task and sub-task across the Vulcan Stow workflow, color-coded in red, green, and purple">
+      <figcaption>Body-storming workshop output — operator outcomes mapped to every task and every exception sub-task across the Vulcan Stow workflow.</figcaption>
+    </figure>
+
+    <p style="color: var(--ink-soft); max-width: 50em;">
+      <strong>Result:</strong> a grounded inventory of operator outcomes, including all failure and recovery states — scored against measurable speed and desirability targets.
+    </p>
+
+    <!-- Risk callout -->
+    <div class="statline statline--stacked reveal">
+      <span class="statline__num"><em>Identified</em> risk</span>
+      <p class="statline__copy">A single scan-item failure path tied directly to the program KPI of 1,000 units per hour. Mapping the exception sub-tasks let product and engineering invest in failure-state UX before launch — not after rework.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Using CXOs in design + research -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Using CXOs in design</h2>
+      <p>CXOs prioritize and define design that enables users to meet KPIs. I worked alongside contract designers on the UI with one rule: every feature has to help the user achieve a specific, named outcome — or it doesn't ship.</p>
+    </div>
+
+    <img class="reveal" src="assets/images/v2/cs3/cs3-cxo-design.png" alt="Using CXOs in Design — Step 1 (Scan item) and Step 2 (Place successfully scanned item), each annotated with its frame, goal, and outcome" style="width: 100%; border-radius: var(--radius-lg); display: block; background: var(--paper-deep);">
+
+    <h3 style="margin-top: var(--s-6); margin-bottom: var(--s-3);">Using CXOs in research</h3>
+    <p style="color: var(--ink-soft); max-width: 50em;">
+      CXOs also verify that users can complete an expected action and meet KPIs. On-floor research with the new station revealed scan-item outcomes that weren't being achieved — operators visibly scratching their heads, unsure what action to take next.
+    </p>
+    <figure class="figure reveal" style="margin-top: var(--s-4);">
+      <video src="assets/images/v2/cs3/operator-confusion.mp4" autoplay muted loop playsinline preload="metadata" style="width: 100%; border-radius: var(--radius-lg); display: block; background: #000;"></video>
+      <figcaption>On-floor observation — operator visibly hesitates after a scan, unsure whether the system confirmed it or not. The scan-item CXO wasn't being met.</figcaption>
+    </figure>
+
+    <h3 style="margin-top: var(--s-6); margin-bottom: var(--s-3);">Closing the loop</h3>
+    <p style="color: var(--ink-soft); max-width: 50em;">
+      The research findings fed directly into the next UI iteration — two distinct, color-coded scan-feedback states that make the next operator action explicit: green directs Vulcan-eligible items to the conveyor; purple routes ineligible items to a manual-stow tote. Plain language, intuitive visuals, no more guesswork.
+    </p>
+    <div class="gallery gallery--2 reveal">
+      <figure class="gallery__item" style="aspect-ratio: 16 / 9; background: var(--paper-pop);">
+        <img src="assets/images/v2/cs3/cxo-design-1.jpg" alt="Improved Vulcan Stow UI showing a green-state 'Place on conveyor' screen — directs the operator to send the scanned item to Vulcan for robotic stow" style="object-fit: contain;">
+        <figcaption class="gallery__item-cap">Vulcan-eligible · "Place on conveyor"</figcaption>
+      </figure>
+      <figure class="gallery__item" style="aspect-ratio: 16 / 9; background: var(--paper-pop);">
+        <img src="assets/images/v2/cs3/cxo-design-2.jpg" alt="Improved Vulcan Stow UI showing a purple-state 'Place in Manual Stow tote' screen — directs the operator to sideline the item for manual stow" style="object-fit: contain;">
+        <figcaption class="gallery__item-cap">Sideline · "Place in Manual Stow tote"</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- Impact -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Operational impact</h2>
+      <p>The CXO framework became the connective tissue between operator research and feature-level product decisions across Amazon Robotics.</p>
+    </div>
+
+    <ul class="bullets bullets--num reveal">
+      <li><span>Framework adopted across 5+ active Amazon Robotics programs</span></li>
+      <li><span>Exception-state UX surfaced and prioritized before launch, reducing post-deployment rework</span></li>
+      <li><span>Outcome scoring enabled measurable validation of design changes in the field</span></li>
+      <li><span>Field-research findings drove UI improvements that further increased scan-feedback salience and exception-item scan recognition</span></li>
+      <li><span>The scan-item / exception-handling pattern has since scaled to ToteASRS and other workstations across the Amazon Robotics portfolio</span></li>
+    </ul>
+
+    <p class="lede reveal" style="margin-top: var(--s-5);">
+      Mapping workflows and their exceptions in a measurable, shared format turned operator UX from a feature-by-feature negotiation into a strategic input to robotic systems design.
+    </p>
+  </div>
+</section>
+
+<section class="next-cs">
+  <div class="container">
+    <a class="next-cs__row" href="ps-handling.html">
+      <div><span class="eyebrow">Next case study</span><span class="next-cs__title">Mapping Exceptions and Problem Solve Handling →</span></div>
+      <span class="eyebrow">Case 04</span>
+    </a>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact__inner">
+      <div class="reveal">
+        <p class="eyebrow" style="margin-bottom: var(--s-4);">Get in touch</p>
+        <p class="contact__big">Currently exploring senior &amp; staff-level UX roles in <span class="accent-words">systems thinking</span> and <span class="accent-words">service design</span>.</p>
+      </div>
+      <div class="reveal contact__links">
+        <a href="resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
+        <a href="https://www.linkedin.com/in/susanneduquette/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:susanneduquette@gmail.com">Email</a>
+      </div>
+    </div>
+  </div>
+  <div class="container" style="margin-top: var(--s-6);">
+    <footer class="foot"><span>© <span class="serif-num">2026</span> Suzie Duquette</span><span><a href="index.html">← Back to all work</a></span></footer>
+  </div>
+</section>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

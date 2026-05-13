@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapping the Operations Tool Ecosystem — Suzie Duquette</title>
+  <meta name="description" content="Week-long ground-truth research into how an entire Amazon fulfillment center actually runs — re-shaped how Amazon Robotics planned its tooling investment.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..500&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23F5F2EC'/%3E%3Ctext x='50' y='68' text-anchor='middle' font-family='Georgia, serif' font-size='62' fill='%23161616' font-style='italic'%3Es%3C/text%3E%3C/svg%3E">
+  <!-- Password gate (soft client-side lock) -->
+  <script>document.documentElement.classList.add('locked');</script>
+  <style>html.locked body { visibility: hidden; }</style>
+  <script src="assets/js/password-gate.js" defer></script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav__inner">
+    <a class="nav__brand" href="index.html">Suzie Duquette<small>UX · Human–Machine Systems</small></a>
+    <nav class="nav__links" aria-label="Primary">
+      <a class="nav__link" href="index.html#work">Work</a>
+      <a class="nav__link" href="about.html">About</a>
+      <a class="nav__link" href="index.html#contact">Contact</a>
+      <a class="btn btn--ghost" href="resume.pdf" target="_blank" rel="noopener">Résumé</a>
+    </nav>
+  </div>
+</header>
+
+<section class="cs-hero">
+  <div class="container">
+    <div class="reveal">
+      <p class="eyebrow">Case 05 · Amazon Robotics · ToteASRS Operational Research</p>
+      <h1 class="cs-hero__title" style="margin-top: var(--s-4);">Mapping the <em>operations tool</em> ecosystem across an Amazon FC.</h1>
+      <p class="cs-hero__lede lede">Before Amazon Robotics could design new tools, we needed a ground truth of how an entire fulfillment center actually runs.</p>
+    </div>
+
+    <img class="cs-cover-img reveal" src="assets/images/v2/cs5/cs5-cover.jpeg" alt="Wide research photo from a fulfillment center — operators at their dashboards" style="aspect-ratio: 16 / 9; object-fit: cover;">
+
+    <div class="cs-summary reveal">
+      <div><h4>Role</h4><p>UX Lead — co-led with partner UX</p></div>
+      <div><h4>Team</h4><p>Product, ToteASRS, UX</p></div>
+      <div><h4>Timeline</h4><p>March 2023</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Context -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>A building with many operators, hundreds of metrics</h2>
+      <p>Hundreds of metrics are monitored constantly by different users across different tools and dashboards. The challenge was mapping all of it before designing anything new.</p>
+    </div>
+
+    <div class="three-col">
+      <div class="three-col__item reveal">
+        <h4>Scale</h4>
+        <p>An average Amazon Robotics fulfillment center has ~1,300 direct-labor associates and 160 operations leaders and support staff, working two shifts a day across four periods each.</p>
+      </div>
+      <div class="three-col__item reveal">
+        <h4>Roles</h4>
+        <p>Five organizational levels — GM, Sr. OM, OM, Area Manager, and PA (Process Assistant) / QB (Quarterback) / AFM (Amnesty Floor Monitor) — each with different tools, metrics, and decision rhythms.</p>
+      </div>
+      <div class="three-col__item reveal">
+        <h4>Friction</h4>
+        <p>Hundreds of metrics across dozens of tools owned by Amazon Robotics, Amazon Fulfillment Technologies, and other internal orgs. Operators were the only people connecting them.</p>
+      </div>
+    </div>
+
+    <p class="lede reveal" style="margin-top: var(--s-5);">
+      I led the UX side of a week-long ground-truth research effort at a Houston fulfillment center, cross-referenced against two additional FCs across the US, to map the full operational experience as input to a cross-org Tools North Star.
+    </p>
+  </div>
+</section>
+
+<!-- Research approach -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Research approach</h2>
+      <p>One week onsite, three FCs in scope, every level of the org represented. The output wasn't a survey — it was a side-by-side map of which metric or data point each role pulls from which dashboard, on which screen, at which moment of the shift.</p>
+    </div>
+
+    <ul class="bullets bullets--num reveal">
+      <li><span><strong>Onsite shadowing</strong> at one Houston FC across two shifts, four periods per shift</span></li>
+      <li><span><strong>Voice-of-customer interviews</strong> across all five organizational levels — GM, Sr. OM, OM, Area Manager, PA/QB/AFM — with cross-reference data from two additional FCs</span></li>
+      <li><span><strong>Tool-by-tool walkthroughs</strong> with each role, capturing every metric pulled, every dashboard opened, and every cross-tool switch</span></li>
+      <li><span><strong>Mapping</strong> — translating the walkthroughs into a side-by-side artifact: role × verb × tool × metric × moment in shift</span></li>
+    </ul>
+
+    <figure class="reveal" style="margin-top: var(--s-5);">
+      <img src="assets/images/v2/cs5/cs5-dashboard-am.jpeg" alt="Dashboard map — AM shift: metrics and tools each operator role pulls from each dashboard page" style="width: 100%; border-radius: var(--radius-lg); display: block; background: var(--paper-deep);">
+      <img src="assets/images/v2/cs5/cs5-dashboard-om.jpeg" alt="Dashboard map — OM shift: metrics and tools each operator role pulls from each dashboard page" style="width: 100%; border-radius: var(--radius-lg); display: block; background: var(--paper-deep); margin-top: var(--s-4);">
+      <img src="assets/images/v2/cs5/cs5-dashboard-key.jpeg" alt="Dashboard map key — legend for the role and metric color-coding used in the maps above" style="width: 100%; border-radius: var(--radius-lg); display: block; background: var(--paper-deep); margin-top: var(--s-4);">
+      <figcaption style="color: var(--ink-soft); font-size: 0.9em; margin-top: var(--s-3);">Workflow map from the original research: what metric or data point each role pulls from each dashboard page, across two shifts (AM / OM) with a shared legend.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- Hierarchy -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>The operational hierarchy of an FC</h2>
+      <p>I mapped the five-level operational structure to the actions, tools, and decision cadences each role depends on.</p>
+    </div>
+
+    <div class="hierarchy reveal">
+      <div class="hierarchy__row">
+        <span class="hierarchy__level">L8</span>
+        <div class="hierarchy__role"><h4>GM / AGM</h4><p>Owns the FC's KPIs, profit and loss, and network-level performance.</p></div>
+        <span class="hierarchy__action">Assess</span>
+      </div>
+      <div class="hierarchy__row">
+        <span class="hierarchy__level">L7</span>
+        <div class="hierarchy__role"><h4>Sr. OM</h4><p>Leads a process path (Inbound, Outbound, CAP, Change Management).</p></div>
+        <span class="hierarchy__action">Assess</span>
+      </div>
+      <div class="hierarchy__row">
+        <span class="hierarchy__level">L6</span>
+        <div class="hierarchy__role"><h4>OM</h4><p>Keeps a single process path moving — staffs, trains, and leads Area Managers.</p></div>
+        <span class="hierarchy__action">Monitor</span>
+      </div>
+      <div class="hierarchy__row">
+        <span class="hierarchy__level">L4/5</span>
+        <div class="hierarchy__role"><h4>Area Manager</h4><p>Owns a specific area: safety, engagement, standard work.</p></div>
+        <span class="hierarchy__action">Manage</span>
+      </div>
+      <div class="hierarchy__row">
+        <span class="hierarchy__level">T3</span>
+        <div class="hierarchy__role"><h4>PA (Process Assistant) · QB (Quarterback) · AFM (Amnesty Floor Monitor)</h4><p>Right-hand staff: SOP compliance, floor health, real-time issue resolution.</p></div>
+        <span class="hierarchy__action">Triage</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Five Verbs -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Five verbs, five cadences</h2>
+      <p>Across every Ops role I mapped, daily work was made up of the same five actions — at different time horizons and through different tools. Mapping work as verbs (not job titles) let us compare tooling needs across roles — and exposed where the same task was forcing a manager to switch tools mid-flow.</p>
+    </div>
+
+    <div class="verbs reveal">
+      <div class="verbs__card">
+        <span class="verbs__card-num">01</span>
+        <span class="verbs__card-title">Assess</span>
+        <p class="verbs__card-desc">Senior managers evaluate prior-day performance and periodic targets at shift start.</p>
+      </div>
+      <div class="verbs__card">
+        <span class="verbs__card-num">02</span>
+        <span class="verbs__card-title">Monitor</span>
+        <p class="verbs__card-desc">Mid-level managers watch execution throughout the shift and take proactive action.</p>
+      </div>
+      <div class="verbs__card">
+        <span class="verbs__card-num">03</span>
+        <span class="verbs__card-title">Manage</span>
+        <p class="verbs__card-desc">Managers plan staffing and adjust labor share across process paths to hit targets.</p>
+      </div>
+      <div class="verbs__card">
+        <span class="verbs__card-num">04</span>
+        <span class="verbs__card-title">Triage</span>
+        <p class="verbs__card-desc">Support managers identify and resolve issues — staffing, equipment, engagement.</p>
+      </div>
+      <div class="verbs__card">
+        <span class="verbs__card-num">05</span>
+        <span class="verbs__card-title">Communicate</span>
+        <p class="verbs__card-desc">Every role reports performance and issues upward, daily and per shift.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VoC -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Voice of customer — in their own words</h2>
+      <p>Operators told us repeatedly that the tool ecosystem is the problem, not the metrics themselves.</p>
+    </div>
+
+    <div class="voc reveal">
+      <div class="voc__card">
+        <span class="voc__card-role">GM</span>
+        <p class="voc__card-quote">"TELL ME WHAT TO DO — the tools should prioritize and make decisions for the building. Ops just needs to execute."</p>
+      </div>
+      <div class="voc__card">
+        <span class="voc__card-role">Sr. OM</span>
+        <p class="voc__card-quote">"In my first month as OM, I just kept receiving links. The tools change all the time; many of my bookmarked links are out of date."</p>
+      </div>
+      <div class="voc__card">
+        <span class="voc__card-role">OM</span>
+        <p class="voc__card-quote">"In an ideal world, when I start my shift, Vantage and Flow tools should be integrated and give me one overview of how the building is running."</p>
+      </div>
+      <div class="voc__card">
+        <span class="voc__card-role">AM / PA</span>
+        <p class="voc__card-quote">"There are way too many tabs. Some load slowly and crash. I find myself just sitting in front of my laptop waiting."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Recommendations -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>From tool sprawl to a unified operator experience</h2>
+      <p>I turned the research into a cross-organizational vision for a centralized, role-aware, decision-supporting operator tool.</p>
+    </div>
+
+    <ul class="bullets bullets--num reveal">
+      <li><span><strong>One operator surface, role-aware.</strong> Replace tool-by-tool navigation with a single workspace that surfaces the right metric, dashboard, and action for each role at the right moment of the shift.</span></li>
+      <li><span><strong>Decision support, not data dumps.</strong> Move from raw metric tabs to prioritized recommendations: where to staff, what to escalate, which standard-work step is overdue.</span></li>
+      <li><span><strong>Integrated cross-org ownership.</strong> Tools North Star developed jointly with the partner teams — closing the seams where Amazon-Robotics-owned tools end and operator workflows continue.</span></li>
+      <li><span><strong>Standard-work checklists built in.</strong> Period-by-period checklists embedded in the operator tool to establish rigor and reduce reliance on tribal knowledge during ramp-up.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- Impact (simplified language per red comments) -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Impact</h2>
+      <p>The research re-shaped how Amazon Robotics planned the next generation of its operations tools.</p>
+    </div>
+
+    <ul class="bullets bullets--num reveal">
+      <li><span>Established the shared, single source of truth that product teams across orgs now use to plan manager-facing tools</span></li>
+      <li><span>Re-scoped the manager dashboards to reflect the new generation of robotic workstations</span></li>
+      <li><span>Triggered a cross-org commitment to one unified manager tool — replacing tool-by-tool sprawl</span></li>
+      <li><span>Surfaced labor planning and work-in-progress visibility as the highest-leverage gaps in the current tool portfolio</span></li>
+    </ul>
+
+    <p class="lede reveal" style="margin-top: var(--s-5);">
+      Mapping every role, action, and tool side by side made it impossible to keep treating manager UX as a per-feature problem. The work re-positioned tools and metrics as a portfolio investment.
+    </p>
+  </div>
+</section>
+
+<section class="next-cs">
+  <div class="container">
+    <a class="next-cs__row" href="tote-asrs.html">
+      <div><span class="eyebrow">Start over from</span><span class="next-cs__title">← Designing for Operators in High-Volume Warehouse Systems</span></div>
+      <span class="eyebrow">Case 01</span>
+    </a>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact__inner">
+      <div class="reveal">
+        <p class="eyebrow" style="margin-bottom: var(--s-4);">Get in touch</p>
+        <p class="contact__big">Currently exploring senior &amp; staff-level UX roles in <span class="accent-words">systems thinking</span> and <span class="accent-words">service design</span>.</p>
+      </div>
+      <div class="reveal contact__links">
+        <a href="resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
+        <a href="https://www.linkedin.com/in/susanneduquette/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:susanneduquette@gmail.com">Email</a>
+      </div>
+    </div>
+  </div>
+  <div class="container" style="margin-top: var(--s-6);">
+    <footer class="foot"><span>© <span class="serif-num">2026</span> Suzie Duquette</span><span><a href="index.html">← Back to all work</a></span></footer>
+  </div>
+</section>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

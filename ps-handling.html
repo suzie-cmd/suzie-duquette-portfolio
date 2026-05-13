@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapping Exceptions and Problem Solve Handling — Suzie Duquette</title>
+  <meta name="description" content="Cross-station research framework that re-shaped how Amazon Robotics handles problem-solve work across fulfillment-center workstations.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..500&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23F5F2EC'/%3E%3Ctext x='50' y='68' text-anchor='middle' font-family='Georgia, serif' font-size='62' fill='%23161616' font-style='italic'%3Es%3C/text%3E%3C/svg%3E">
+  <!-- Password gate (soft client-side lock) -->
+  <script>document.documentElement.classList.add('locked');</script>
+  <style>html.locked body { visibility: hidden; }</style>
+  <script src="assets/js/password-gate.js" defer></script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav__inner">
+    <a class="nav__brand" href="index.html">Suzie Duquette<small>UX · Human–Machine Systems</small></a>
+    <nav class="nav__links" aria-label="Primary">
+      <a class="nav__link" href="index.html#work">Work</a>
+      <a class="nav__link" href="about.html">About</a>
+      <a class="nav__link" href="index.html#contact">Contact</a>
+      <a class="btn btn--ghost" href="resume.pdf" target="_blank" rel="noopener">Résumé</a>
+    </nav>
+  </div>
+</header>
+
+<section class="cs-hero">
+  <div class="container">
+    <div class="reveal">
+      <p class="eyebrow">Case 04 · Amazon Robotics · RXD</p>
+      <h1 class="cs-hero__title" style="margin-top: var(--s-4);">Mapping <em>exceptions</em> and problem-solve handling across FC workstations.</h1>
+      <p class="cs-hero__lede lede">A cross-station research framework for preventing, resolving, and routing problems at the source — built across two FC sites and five station types.</p>
+    </div>
+
+    <img class="cs-cover-img reveal" src="assets/images/v2/cs4/cs4-cover.jpeg" alt="Wide hero shot of an Amazon fulfillment center floor — ToteASRS storage and active workstations" style="aspect-ratio: 16 / 9; object-fit: cover;">
+
+
+    <div class="cs-summary reveal">
+      <div><h4>Role</h4><p>Senior UX Lead — RXD (Robotics eXperience Design)</p></div>
+      <div><h4>Team</h4><p>Cross-program research, product, ops</p></div>
+      <div><h4>Timeline</h4><p>2025 — multi-quarter</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Problem -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Problem solve has been deprioritized — and it's compounding.</h2>
+      <p>Across robotic workstations, exception handling is consistently moved downstream — never resolved at the source.</p>
+    </div>
+
+    <ul class="bullets bullets--x reveal">
+      <li><span>Every station type creates problem-solve (PS) work; none of them are designed to resolve it</span></li>
+      <li><span>How items exit varies (sideline button, waterspider pickup, floor accumulation) — but all roads end in a PS backlog</span></li>
+      <li><span>Newer stations have deprioritized PS handling in software, leaving sites to figure it out themselves</span></li>
+      <li><span>Defects injected upstream compound before they ever reach a PS associate</span></li>
+    </ul>
+
+    <div class="pullquote reveal">
+      <p>Every station creates problem solve work. None of them are designed to resolve it.</p>
+      <footer>Cross-station research finding</footer>
+    </div>
+  </div>
+</section>
+
+<!-- Why now -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Why this matters now</h2>
+      <p>Two upcoming workstation programs cannot inherit the current "figure it out" approach to exceptions.</p>
+    </div>
+
+    <div class="three-col">
+      <div class="three-col__item reveal">
+        <h4>New Pick-Pack station</h4>
+        <p>Limited footprint, no sidelining room, blocked sightlines into the work cell.</p>
+      </div>
+      <div class="three-col__item reveal">
+        <h4>Grocery workstations</h4>
+        <p>Refrigerated and chilled items cannot sit idle on the floor waiting for a waterspider — this is a food-safety issue, not just an ops inefficiency.</p>
+      </div>
+      <div class="three-col__item reveal">
+        <h4>Systemic, not isolated</h4>
+        <p>Problem solve is a cross-station issue; solving it station-by-station won't scale.</p>
+      </div>
+    </div>
+
+    <div class="callout reveal" style="background: #BD0012; color: white; margin-top: var(--s-5);">
+      <h4 style="color: rgba(255,255,255,0.85); letter-spacing: 0.14em;">Active safety hazard</h4>
+      <p style="font-family: var(--font-display); font-style: italic;">Blocking station entrances with sidelined items isn't an ops inefficiency — it's a safety event waiting for a regulator.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Research approach -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>A connected research arc</h2>
+      <p>Rather than evaluate a single workstation, I built a five-stage research framework to trace problems from origin to resolution.</p>
+    </div>
+
+    <div class="process5 process5--cohesive reveal">
+      <div class="process5__step">
+        <div class="process5__step-box">
+          <span class="process5__step-num">01</span>
+          <span class="process5__step-name">Identify</span>
+          <span class="process5__step-inline">What problems are being created and where?</span>
+        </div>
+      </div>
+      <div class="process5__step">
+        <div class="process5__step-box">
+          <span class="process5__step-num">02</span>
+          <span class="process5__step-name">Trace</span>
+          <span class="process5__step-inline">Where do items go after a problem is reported — or not?</span>
+        </div>
+      </div>
+      <div class="process5__step">
+        <div class="process5__step-box">
+          <span class="process5__step-num">03</span>
+          <span class="process5__step-name">Shadow</span>
+          <span class="process5__step-inline">How do PS associates resolve issues today?</span>
+        </div>
+      </div>
+      <div class="process5__step">
+        <div class="process5__step-box">
+          <span class="process5__step-num">04</span>
+          <span class="process5__step-name">Map</span>
+          <span class="process5__step-inline">Document the current exception process end-to-end.</span>
+        </div>
+      </div>
+      <div class="process5__step">
+        <div class="process5__step-box">
+          <span class="process5__step-num">05</span>
+          <span class="process5__step-name">Propose</span>
+          <span class="process5__step-inline">Develop workflows that reduce PS burden at the station.</span>
+        </div>
+      </div>
+    </div>
+
+    <p style="color: var(--ink-soft); max-width: 50em;"><strong>Scope:</strong> 5 station types · multi-site · multi-method (shadowing, real-time observation, item-journey tracing, UX evaluations).</p>
+  </div>
+</section>
+
+<!-- Visualizing the cost -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>What it looks like when PS compounds</h2>
+      <p>The cost of deprioritizing problem solve is visible at the station: totes accumulate faster than waterspiders can clear them, and a single PEW associate can surround their station in under thirty minutes.</p>
+    </div>
+
+    <div class="ps-compound-grid reveal">
+      <img src="assets/images/v2/cs4/cs4-ps1.jpeg" alt="PS totes accumulating around an inventory-removal station" style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-lg); display: block;">
+      <div class="ps-compound-grid__caption">
+        <p class="eyebrow" style="margin-bottom: var(--s-3);">Observed</p>
+        <p>25 PS totes from a single associate in 30 minutes — and 17 totes surrounding a single station at peak. The signal to clear them never reached the right person fast enough.</p>
+      </div>
+      <img src="assets/images/v2/cs4/cs4-ps2.jpeg" alt="Operator at a station with sidelined items piling up" style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius-lg); display: block;">
+    </div>
+  </div>
+</section>
+
+<!-- Swim lane (centerpiece) -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>The current exception process — end to end</h2>
+      <p>Four actors, multiple failure points, no one in control. I mapped every break in the handoff between operator, system, waterspider, and PS associate.</p>
+    </div>
+
+    <div class="swimlane reveal">
+      <div class="swimlane__row swimlane__row--associate">
+        <div class="swimlane__label">
+          <span class="swimlane__label-title">Associate</span>
+          <span class="swimlane__label-sub">Reports + waits</span>
+        </div>
+        <div class="swimlane__body">
+          <div class="swimlane__failure">
+            <span class="swimlane__failure-mark">✕</span>
+            <div class="swimlane__failure-text"><strong>Missed scan signal</strong><span>silent PVM (physical-virtual mismatch) created</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="swimlane__row swimlane__row--system">
+        <div class="swimlane__label">
+          <span class="swimlane__label-title">System / UI</span>
+          <span class="swimlane__label-sub">Provides feedback</span>
+        </div>
+        <div class="swimlane__body">
+          <div></div>
+          <div class="swimlane__failure">
+            <span class="swimlane__failure-mark">✕</span>
+            <div class="swimlane__failure-text"><strong>No reporting mechanism</strong><span>item sidelined unrecorded</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="swimlane__row swimlane__row--waterspider">
+        <div class="swimlane__label">
+          <span class="swimlane__label-title">Waterspider</span>
+          <span class="swimlane__label-sub">Collects + transports</span>
+        </div>
+        <div class="swimlane__body">
+          <div></div>
+          <div></div>
+          <div class="swimlane__failure">
+            <span class="swimlane__failure-mark">✕</span>
+            <div class="swimlane__failure-text"><strong>Waterspider dependency</strong><span>collected only when noticed</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="swimlane__row swimlane__row--ps">
+        <div class="swimlane__label">
+          <span class="swimlane__label-title">PS Associate</span>
+          <span class="swimlane__label-sub">Resolves manually</span>
+        </div>
+        <div class="swimlane__body">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div class="swimlane__failure">
+            <span class="swimlane__failure-mark">✕</span>
+            <div class="swimlane__failure-text"><strong>One tote at a time</strong><span>no bulk resolution</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="lede reveal" style="margin-top: var(--s-5);">
+      The swim lane became the team's shared artifact for understanding why station-level fixes never closed the loop — the breaks in the handoff between operator, system, waterspider, and PS associate were structural, not cosmetic.
+    </p>
+  </div>
+</section>
+
+<!-- Complexity of resolution -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>How complex it is to resolve one problem</h2>
+      <p>The PS associate's reality: no guided workflow, no prioritization — just tribal knowledge and six disconnected tools. Triage means stepping through up to six checks before landing on one of seven branching resolution paths.</p>
+    </div>
+
+    <div class="flow reveal">
+      <div class="flow__row">
+        <span class="flow__chip flow__chip--num" data-num="01">Scan tote</span>
+        <span class="flow__arrow"></span>
+        <span class="flow__chip flow__chip--num" data-num="02">Check overheight</span>
+        <span class="flow__arrow"></span>
+        <span class="flow__chip flow__chip--num" data-num="03">Check weight</span>
+        <span class="flow__arrow"></span>
+        <span class="flow__chip flow__chip--num" data-num="04">Check disposition</span>
+        <span class="flow__arrow"></span>
+        <span class="flow__chip flow__chip--num" data-num="05">Check LPN</span>
+        <span class="flow__arrow"></span>
+        <span class="flow__chip flow__chip--num" data-num="06">Follow branch</span>
+      </div>
+      <div class="flow__branches">
+        <span class="flow__chip flow__chip--exception">Overheight</span>
+        <span class="flow__chip flow__chip--exception">PVM (physical-virtual mismatch)</span>
+        <span class="flow__chip flow__chip--exception">Missing expiration</span>
+        <span class="flow__chip flow__chip--exception">Expired item</span>
+        <span class="flow__chip flow__chip--exception">Unscannable</span>
+        <span class="flow__chip flow__chip--exception">Routing issue</span>
+        <span class="flow__chip flow__chip--exception">Mixed disposition</span>
+      </div>
+    </div>
+
+    <p style="color: var(--ink-soft); max-width: 50em; margin-top: var(--s-3);">
+      A senior PS associate built her own Google Doc to navigate this — six years of tribal knowledge. A new hire has none of it on day one.
+    </p>
+
+    <img class="reveal" src="assets/images/v2/cs4/cs4-ps3.jpeg" alt="PS associate's workstation — Google Doc reference, handheld scanner, and multiple tool windows open side-by-side" style="aspect-ratio: 16 / 9; object-fit: cover; width: 100%; border-radius: var(--radius-lg); display: block; margin-top: var(--s-5);">
+  </div>
+</section>
+
+<!-- Decision filter -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>What can be solved at the station?</h2>
+      <p>Before any recommendation, I filtered every problem type by whether it could be prevented, resolved at the station, routed, or only physically sidelined.</p>
+    </div>
+
+    <div class="decision-table reveal">
+      <div class="decision-table__head">
+        <div>Problem type</div>
+        <div>At station?</div>
+        <div>Recommendation</div>
+      </div>
+      <div class="decision-table__row">
+        <div class="decision-table__row-name">Damaged / leaking item</div>
+        <div><span class="decision-table__row-tag tag-sideline">Must sideline</span></div>
+        <div class="decision-table__row-rec">Physical handling required — no digital fix.</div>
+      </div>
+      <div class="decision-table__row">
+        <div class="decision-table__row-name">Unscannable barcode</div>
+        <div><span class="decision-table__row-tag tag-partial">Partial</span></div>
+        <div class="decision-table__row-rec">Print barcode at station OR re-induct to PS.</div>
+      </div>
+      <div class="decision-table__row">
+        <div class="decision-table__row-name">Unknown / unrecognized item</div>
+        <div><span class="decision-table__row-tag tag-yes">Yes</span></div>
+        <div class="decision-table__row-rec">New guided UI workflow.</div>
+      </div>
+      <div class="decision-table__row">
+        <div class="decision-table__row-name">PVM (physical-virtual mismatch) from missed scan</div>
+        <div><span class="decision-table__row-tag tag-prevent">Prevent</span></div>
+        <div class="decision-table__row-rec">Enhanced multi-modal feedback.</div>
+      </div>
+      <div class="decision-table__row">
+        <div class="decision-table__row-name">Catch-all sideline</div>
+        <div><span class="decision-table__row-tag tag-yes">Yes</span></div>
+        <div class="decision-table__row-rec">Replace with guided exception resolution.</div>
+      </div>
+    </div>
+
+    <p style="color: var(--ink-soft); max-width: 50em;">Not every problem needs a new feature. Some need prevention; some need routing; only a few need physical handling. This filter became the input to a four-tier resolution framework.</p>
+  </div>
+</section>
+
+<!-- PS Resolution Pyramid -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>The PS Resolution Framework</h2>
+      <p>I authored a four-tier hierarchy that now guides every new workstation design — from new Pick-Pack to grocery.</p>
+    </div>
+
+    <div class="ps-triangle reveal">
+      <div class="ps-pyramid" role="img" aria-label="Four-tier resolution hierarchy: Prevent, Resolve, Route, Sideline, decreasing in priority and width">
+        <div class="ps-pyramid__band" style="--tier-w: 100%; --tier-bg: #1A7A4A;">
+          <span class="ps-pyramid__num">01</span>
+          <span class="ps-pyramid__name">Prevent</span>
+          <span class="ps-pyramid__desc">Stop the problem at the source</span>
+        </div>
+        <div class="ps-pyramid__band" style="--tier-w: 80%; --tier-bg: #1A5276;">
+          <span class="ps-pyramid__num">02</span>
+          <span class="ps-pyramid__name">Resolve</span>
+          <span class="ps-pyramid__desc">Fix it at the station, in the moment</span>
+        </div>
+        <div class="ps-pyramid__band" style="--tier-w: 60%; --tier-bg: #B84A00;">
+          <span class="ps-pyramid__num">03</span>
+          <span class="ps-pyramid__name">Route</span>
+          <span class="ps-pyramid__desc">Move it efficiently, in bulk</span>
+        </div>
+        <div class="ps-pyramid__band" style="--tier-w: 40%; --tier-bg: #BD0012;">
+          <span class="ps-pyramid__num">04</span>
+          <span class="ps-pyramid__name">Sideline</span>
+          <span class="ps-pyramid__desc">Physical handling only — last resort</span>
+        </div>
+      </div>
+
+      <div class="ps-triangle__legend">
+        <div class="ps-triangle__item is-prevent reveal">
+          <span class="ps-triangle__step">01</span>
+          <div>
+            <p class="ps-triangle__name">Prevent</p>
+            <p class="ps-triangle__desc">Stop the problem at the source. Enhanced multi-modal feedback, clearer scan confirmation, forced acknowledgment of failure states.</p>
+          </div>
+        </div>
+        <div class="ps-triangle__item is-resolve reveal">
+          <span class="ps-triangle__step">02</span>
+          <div>
+            <p class="ps-triangle__name">Resolve</p>
+            <p class="ps-triangle__desc">Fix it at the station. Guided workflows for unknown items; barcode printers for unscannable items; replace catch-all sideline with structured resolution.</p>
+          </div>
+        </div>
+        <div class="ps-triangle__item is-route reveal">
+          <span class="ps-triangle__step">03</span>
+          <div>
+            <p class="ps-triangle__name">Route</p>
+            <p class="ps-triangle__desc">Move it efficiently. Automated routing, consolidated PS totes (cap 1 → 11 items), batch-resolve workflows for PS associates.</p>
+          </div>
+        </div>
+        <div class="ps-triangle__item is-sideline reveal">
+          <span class="ps-triangle__step">04</span>
+          <div>
+            <p class="ps-triangle__name">Sideline</p>
+            <p class="ps-triangle__desc">Physical handling only. Damaged or leaking containers — last resort.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Recommended improvements -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>What "Prevent" and "Resolve" actually look like</h2>
+      <p>The framework becomes design direction. Three of the five recommendations turned into in-flight feature work.</p>
+    </div>
+
+    <div class="three-col">
+      <div class="three-col__item reveal">
+        <h4>Enhanced scan feedback</h4>
+        <p>Multi-modal: full-screen background colour change + LED/captron lighting + auditory alert, with forced acknowledgment before the workflow advances. Existing hardware, coordinated signal.</p>
+      </div>
+      <div class="three-col__item reveal">
+        <h4>Unknown item guided workflow</h4>
+        <p>Exception button (footer, question-mark icon) launches a step-by-step UI that guides associates through identification — opened-item vs. unopened-case branches — using existing scan-error and confirmation patterns.</p>
+      </div>
+      <div class="three-col__item reveal">
+        <h4>PS tote consolidation</h4>
+        <p>Raise the per-tote cap from one item to eleven. Multi-modal PS alert (yellow background + red captron flash + auditory). Projected to eliminate 70%+ of station tote congestion.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Impact -->
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Impact and forward adoption</h2>
+      <p>The framework moved from a research output to an active gate on new workstation kickoffs and a roadmap for in-flight programs.</p>
+    </div>
+
+    <ul class="bullets bullets--num reveal">
+      <li><span>Inventory removal station multi-modal alert prioritized as a ~2-week quick win (yellow background + red captron + auditory)</span></li>
+      <li><span>PS tote consolidation cap raised from 1 → 11 items, projected to eliminate 70%+ of station tote congestion</span></li>
+      <li><span>Framework applied to new Pick-Pack and grocery workstation design briefs — PS handling defined before hardware ships</span></li>
+      <li><span>Stow scan-feedback redesign with forced acknowledgment moved into next-release roadmap for 2+ workstations</span></li>
+    </ul>
+
+    <p class="lede reveal" style="margin-top: var(--s-5);">
+      The largest outcome wasn't a UI; it was establishing that exception handling has to be designed before hardware ships — and giving teams a shared vocabulary for deciding how.
+    </p>
+  </div>
+</section>
+
+<section class="next-cs">
+  <div class="container">
+    <a class="next-cs__row" href="ops-tools.html">
+      <div><span class="eyebrow">Next case study</span><span class="next-cs__title">Mapping the Operations Tool Ecosystem →</span></div>
+      <span class="eyebrow">Case 05</span>
+    </a>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact__inner">
+      <div class="reveal">
+        <p class="eyebrow" style="margin-bottom: var(--s-4);">Get in touch</p>
+        <p class="contact__big">Currently exploring senior &amp; staff-level UX roles in <span class="accent-words">systems thinking</span> and <span class="accent-words">service design</span>.</p>
+      </div>
+      <div class="reveal contact__links">
+        <a href="resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
+        <a href="https://www.linkedin.com/in/susanneduquette/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:susanneduquette@gmail.com">Email</a>
+      </div>
+    </div>
+  </div>
+  <div class="container" style="margin-top: var(--s-6);">
+    <footer class="foot"><span>© <span class="serif-num">2026</span> Suzie Duquette</span><span><a href="index.html">← Back to all work</a></span></footer>
+  </div>
+</section>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

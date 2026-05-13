@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Autonomous fleet monitoring improvements — Suzie Duquette</title>
+  <meta name="description" content="HRI framework for Proteus, Amazon's first autonomous drive unit — simplifying onsite issue resolution and informing next-generation hardware.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..500&family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23F5F2EC'/%3E%3Ctext x='50' y='68' text-anchor='middle' font-family='Georgia, serif' font-size='62' fill='%23161616' font-style='italic'%3Es%3C/text%3E%3C/svg%3E">
+  <!-- Password gate (soft client-side lock) -->
+  <script>document.documentElement.classList.add('locked');</script>
+  <style>html.locked body { visibility: hidden; }</style>
+  <script src="assets/js/password-gate.js" defer></script>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav__inner">
+    <a class="nav__brand" href="index.html">Suzie Duquette<small>UX · Human–Machine Systems</small></a>
+    <nav class="nav__links" aria-label="Primary">
+      <a class="nav__link" href="index.html#work">Work</a>
+      <a class="nav__link" href="about.html">About</a>
+      <a class="nav__link" href="index.html#contact">Contact</a>
+      <a class="btn btn--ghost" href="resume.pdf" target="_blank" rel="noopener">Résumé</a>
+    </nav>
+  </div>
+</header>
+
+<section class="cs-hero">
+  <div class="container">
+    <div class="reveal">
+      <p class="eyebrow">Case 02 · Amazon Robotics</p>
+      <h1 class="cs-hero__title" style="margin-top: var(--s-4);"><em>Autonomous fleet</em> monitoring improvements.</h1>
+      <p class="cs-hero__lede lede">Proteus — Amazon's first autonomous drive unit — is a collaborative robot that transports carts of customer packages from collection chutes to outbound truck loading. I led the operator-facing UX for Proteus: the on-robot indicators, the floor-monitor resolution workflows, and the HRI framework guiding the Gen2 hardware redesign.</p>
+    </div>
+
+    <img class="cs-cover-img reveal" src="assets/images/v2/cs2/proteus-fleet.jpg" alt="A fleet of Proteus autonomous drive units staged inside a fulfillment center">
+
+    <div class="cs-summary reveal">
+      <div><h4>Role</h4><p>Senior UX Lead — HRI framework + Gen2 hardware UX</p></div>
+      <div><h4>Team</h4><p>Hardware, robotics SW, ops, program</p></div>
+      <div><h4>Timeline</h4><p>2024 – Present · Gen2 in Alpha</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>System misalignment at scale</h2>
+      <p>Proteus was planned to scale to 14 additional sites throughout 2025, averaging 150 bots per site. At the same time, second-generation bot development kicked off with goals to improve safety sensor capability while reducing per-bot cost.</p>
+    </div>
+
+    <div class="reveal" style="display: grid; grid-template-columns: 5fr 7fr; gap: var(--s-6); align-items: start; margin: var(--s-5) 0;">
+      <figure style="margin: 0;">
+        <img src="assets/images/v2/cs2/cover-portrait.jpg" alt="Carts staged for outbound loading in a Proteus-served area of a fulfillment center" style="width: 100%; border-radius: var(--radius-lg); display: block;">
+        <figcaption style="margin-top: var(--s-3); font-size: var(--fs-14); color: var(--ink-soft); line-height: 1.5;">Proteus operates collaboratively alongside humans — every issue, edge case, and exception has to be resolved by a human Floor Monitor in real time.</figcaption>
+      </figure>
+      <ul class="bullets bullets--x" style="margin: 0;">
+        <li><span><strong>Traffic management.</strong> Floor Monitors were required to manually clear traffic jams and navigate bots out of deadlocks.</span></li>
+        <li><span><strong>Issue response times.</strong> Resolving Proteus-related issues consumed 77% of a Floor Monitor's time during a shift, with resolution averaging 6 to 23 minutes per issue.</span></li>
+        <li><span><strong>Competing program timelines.</strong> Short-term software improvements for Gen1 had to be balanced with long-term hardware updates for Gen2.</span></li>
+      </ul>
+    </div>
+
+    <div class="statline reveal">
+      <span class="statline__num"><em>77</em>%</span>
+      <p class="statline__copy">of a Floor Monitor's shift was consumed by Proteus issue response — with single-issue resolution averaging 6 to 23 minutes.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Diagnosing system friction</h2>
+      <p>I defined the research strategy for fleet management — scoping it to cover both the bot's behavior and the human's workflow — and led the four research streams that surfaced where the existing system was failing.</p>
+    </div>
+
+    <ul class="bullets bullets--num reveal">
+      <li><span>Stakeholder interviews with Operations, Floor Monitors, and Robotics engineers</span></li>
+      <li><span>On-floor shadowing of issue responders during live shifts</span></li>
+      <li><span>Behavioral pattern analysis across multiple sites and shifts</span></li>
+      <li><span>Journey mapping covering both bot lifecycle and human resolution workflow</span></li>
+    </ul>
+
+    <figure class="figure reveal">
+      <img src="assets/images/v2/cs2/diagnosing.jpg" alt="A Floor Monitor interacting with a Proteus bot — pressing the action button on the bot's control interface during a live issue">
+      <figcaption>Shadowing Floor Monitors during live shifts — capturing the physical movements, button presses, and decisions a single issue actually demands of a human responder.</figcaption>
+    </figure>
+
+    <div class="pullquote reveal">
+      <p>Findings showed that operators were navigating fragmented workflows across multiple touchpoints — with limited visibility into task progression, error conditions, or issue resolution status.</p>
+      <footer>Research synthesis · Cross-site analysis</footer>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Visualizing touchpoint usage</h2>
+      <p>Research findings were translated into a touchpoint analysis — a swim-lane view across user need, workflow, monitoring tool, radio, joystick, and every Proteus output (LEDs, eyes, LCD display, accessory buttons, sound, e-stop, spotlight) — so product and engineering could see the full surface area a single use case spans.</p>
+    </div>
+    <figure class="figure reveal">
+      <img src="assets/images/v2/cs2/touchpoints.jpg" alt="Touchpoint analysis diagram for Proteus — a swim-lane spanning user need, workflow, bot inputs and outputs across LEDs, eyes, LCD, accessory buttons, sound, e-stop and spotlight">
+      <figcaption>Example touchpoint analysis — Use Case 1: manual intervention with the bot. Operators were navigating fragmented workflows across this many distinct touchpoints, with limited visibility into task progression, error conditions, or issue resolution.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Structural redesign</h2>
+      <p>To increase resilience and clarity of system status, I developed a simplified HRI framework focused on structural simplification — not purely aesthetic updates.</p>
+    </div>
+
+    <ul class="bullets reveal">
+      <li data-num="01"><span>Re-architected color usage and information hierarchy</span></li>
+      <li data-num="02"><span>Clarified role-based visibility through the outbound docking area</span></li>
+      <li data-num="03"><span>Reduced redundant decision paths in problem resolution</span></li>
+      <li data-num="04"><span>Introduced consistent system-feedback patterns</span></li>
+      <li data-num="05"><span>Standardized interaction states across the fleet</span></li>
+    </ul>
+
+    <figure class="figure reveal">
+      <img src="assets/images/v2/cs2/hri-framework.jpg" alt="HRI framework matrix mapping control mode, health status, action, and the corresponding state indicator across LED, sound, and display surfaces">
+      <figcaption>The HRI framework I structured for Proteus — mapping every combination of <em>control mode</em> (autonomous vs. manual), <em>health status</em> (healthy vs. unhealthy), and required <em>action</em> to a consistent set of state indicators across LEDs, eyes, sound, and accessory buttons.</figcaption>
+    </figure>
+
+    <figure class="figure reveal">
+      <img src="assets/images/v2/cs2/joystick.jpg" alt="Operator indicator design — pairing every operator need with a specific multi-modal signal across the bot's eyes, front/sides underglow, and rear underglow">
+      <figcaption>Operator-indicator design derived from the framework — every operator need (no WAN, no Wi-Fi, paired joystick, ready to release, fault) gets a deliberate, multi-modal signal that reads from any angle on the floor.</figcaption>
+    </figure>
+
+    <figure class="figure reveal">
+      <img src="assets/images/v2/cs2/framework-app.jpg" alt="Removing redundant joystick commands — a gamepad with redundant buttons highlighted in orange, marked for removal in Gen2 hardware">
+      <figcaption>Applying the framework: I identified opportunities to remove excessive touchpoints, reduce resolution steps, and eliminate redundant joystick commands — favoring simplification and Gen2 cost reduction over more hardware indicators.</figcaption>
+    </figure>
+
+    <div class="pullquote reveal">
+      <p>Align autonomy with human oversight. When a fleet scales by an order of magnitude, the human-readable signal has to scale with it — or response times balloon.</p>
+      <footer>Design principle</footer>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Evaluating effectiveness</h2>
+      <p>I used a combination of quantitative performance and qualitative satisfaction data to validate HRI framework concepts, software feature releases, and new Gen2 hardware components. The same artifact gates software releases and Gen2 hardware decisions.</p>
+    </div>
+
+    <div class="eval-matrix reveal" role="img" aria-label="Validation matrix — performance based on error rate plotted against satisfaction percentage, with green, yellow, and red zones">
+      <div class="eval-matrix__x-title">Satisfaction</div>
+      <div class="eval-matrix__y-title">Performance<br>(based on error rate)</div>
+      <div class="eval-matrix__plot" id="eval-plot"></div>
+    </div>
+    <script>
+      (function(){
+        var host = document.getElementById('eval-plot');
+        if (!host) return;
+        var satLabels = ['0%','10%','20%','30%','40%','50%','60%','70%','80%','90%'];
+        var perfLabels = ['100%','90%','80%','70%','60%','50%','40%','30%','20%','10%'];
+        var corner = document.createElement('div'); corner.className = 'eval-matrix__corner'; host.appendChild(corner);
+        for (var c = 0; c < 10; c++) {
+          var lbl = document.createElement('div'); lbl.className = 'eval-matrix__col-label';
+          lbl.textContent = satLabels[c]; host.appendChild(lbl);
+        }
+        for (var r = 0; r < 10; r++) {
+          var rl = document.createElement('div'); rl.className = 'eval-matrix__row-label';
+          rl.textContent = perfLabels[r]; host.appendChild(rl);
+          var perf = (10 - r) / 10;
+          for (var c = 0; c < 10; c++) {
+            var d = document.createElement('div'); d.className = 'eval-matrix__cell';
+            var sat = (c + 1) / 10;
+            var combined = perf + sat;
+            if (combined >= 1.5) d.classList.add('eval-matrix__cell--green');
+            else if (combined >= 1.1) d.classList.add('eval-matrix__cell--yellow');
+            else d.classList.add('eval-matrix__cell--red');
+            host.appendChild(d);
+          }
+        }
+      })();
+    </script>
+    <p style="margin-top: var(--s-4); color: var(--ink-soft); max-width: 50em;">
+      Every shipped Gen1 software release and every proposed Gen2 hardware component lands on this grid as a single point. Only changes that land in the <strong style="color: #2A8C5F;">green region</strong> ship; yellow iterates, red goes back to redesign.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Operational impact</h2>
+      <p>While Gen2 bot designs are currently in Alpha, positive results have already been seen from short-term software releases to live sites.</p>
+    </div>
+
+    <div class="impact-grid reveal">
+      <div class="impact-card"><div class="impact-card__num"><em>−50</em>%</div><p class="impact-card__label">Reduced onsite staffing burden</p></div>
+      <div class="impact-card"><div class="impact-card__num">↓</div><p class="impact-card__label">Reduced number of support tickets</p></div>
+      <div class="impact-card"><div class="impact-card__num">↓</div><p class="impact-card__label">Reduced training time for new operators</p></div>
+      <div class="impact-card"><div class="impact-card__num"><em>−5</em>%</div><p class="impact-card__label">Lower overall Gen2 bot cost from simplified design</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="next-cs">
+  <div class="container">
+    <a class="next-cs__row" href="vulcan-stow.html">
+      <div><span class="eyebrow">Next case study</span><span class="next-cs__title">Mapping Operator Workflows and Exceptions →</span></div>
+      <span class="eyebrow">Case 03</span>
+    </a>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact__inner">
+      <div class="reveal">
+        <p class="eyebrow" style="margin-bottom: var(--s-4);">Get in touch</p>
+        <p class="contact__big">Currently exploring senior &amp; staff-level UX roles in <span class="accent-words">systems thinking</span> and <span class="accent-words">service design</span>.</p>
+      </div>
+      <div class="reveal contact__links">
+        <a href="resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
+        <a href="https://www.linkedin.com/in/susanneduquette/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:susanneduquette@gmail.com">Email</a>
+      </div>
+    </div>
+  </div>
+  <div class="container" style="margin-top: var(--s-6);">
+    <footer class="foot"><span>© <span class="serif-num">2026</span> Suzie Duquette</span><span><a href="index.html">← Back to all work</a></span></footer>
+  </div>
+</section>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
