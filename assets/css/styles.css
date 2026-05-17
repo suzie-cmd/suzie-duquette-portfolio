@@ -1990,11 +1990,57 @@ footer.foot {
 
 @media (max-width: 600px) {
   :root { --s-7: 64px; --s-6: 48px; }
-  .principles__grid { grid-template-columns: 1fr 1fr; }
   .nav__brand small { display: none; }
   .nav__links { gap: var(--s-3); }
   .nav__link { font-size: var(--fs-12); }
-  .impact-grid { grid-template-columns: 1fr; }
+
+  /* Collapse every multi-column grid to a single column on mobile */
+  .hero__lower,
+  .principles__intro,
+  .principles__grid,
+  .case-card,
+  .case-card:nth-child(even),
+  .split,
+  .stats,
+  .about-hero__grid,
+  .about-bio__grid,
+  .capabilities,
+  .cs-summary,
+  .section-head,
+  .three-col,
+  .callout,
+  .impact-grid,
+  .ps-compound-grid,
+  .ps-triangle,
+  .verbs,
+  .voc,
+  .gallery,
+  .gallery--2,
+  .gallery--3,
+  .process5,
+  .swimlane__body,
+  .decision-table__head,
+  .decision-table__row,
+  .cross-stations,
+  .contact__inner {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Hierarchy + swimlane: stack everything */
+  .hierarchy__row { grid-template-columns: 1fr; gap: var(--s-2); }
+  .hierarchy__level { font-size: var(--fs-12); }
+  .swimlane__row { grid-template-columns: 1fr; gap: var(--s-2); }
+  .swimlane__label { font-size: var(--fs-14); padding-bottom: var(--s-2); }
+
+  /* CXO matrix: let rows wrap rather than overflow */
+  .cxo-matrix__row { grid-template-columns: 1fr; gap: var(--s-2); }
+
+  /* Eval matrix: tighten plot */
+  .eval-matrix__plot { grid-template-columns: 28px repeat(5, 1fr); }
+
+  /* Case-card media: don't dominate vertical space on mobile */
+  .case-card__media img,
+  .case-card__media video { aspect-ratio: 16 / 10; }
 }
 
 @media (prefers-reduced-motion: reduce) {
