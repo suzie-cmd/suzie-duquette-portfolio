@@ -266,8 +266,13 @@ section + section { padding-top: 0; }
 
 /* --- Hero (editorial, type-driven) ------------------------ */
 .hero {
+  /* Make the hero fill at least one full viewport so the next
+     section ("My approach") always sits below the first fold,
+     regardless of screen size. */
+  min-height: 100vh;
+  min-height: 100svh;  /* small-viewport-height fallback for mobile toolbars */
   padding-top: clamp(56px, 11vh, 120px);
-  padding-bottom: var(--s-5);
+  padding-bottom: clamp(var(--s-6), 10vh, var(--s-7));
   position: relative;
 }
 .hero__intro {
