@@ -216,6 +216,7 @@ section + section { padding-top: 0; }
   margin-left: 12px;
   font-weight: 500;
 }
+.nav__brand-short { display: none; }
 .nav__links {
   display: flex;
   gap: var(--s-4);
@@ -278,7 +279,8 @@ section + section { padding-top: 0; }
 .hero__intro {
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: var(--s-3) var(--s-5);
+  /* Tighter column gap so the accent dot sits closer to the name */
+  gap: var(--s-3) 12px;
   align-items: baseline;
   margin-bottom: var(--s-4);
 }
@@ -736,7 +738,8 @@ footer.foot {
 /* Capability cards (About page) */
 .capabilities {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  /* Desktop: all six cards in one row, full container width */
+  grid-template-columns: repeat(6, 1fr);
   gap: var(--s-3);
 }
 .capabilities__card {
@@ -814,8 +817,11 @@ footer.foot {
   margin: 0;
 }
 
+@media (max-width: 1200px) {
+  .capabilities { grid-template-columns: repeat(3, 1fr); }
+}
 @media (max-width: 800px) {
-  .capabilities { grid-template-columns: 1fr; }
+  .capabilities { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* =========================================================
@@ -1996,8 +2002,11 @@ footer.foot {
 @media (max-width: 600px) {
   :root { --s-7: 64px; --s-6: 48px; }
   .nav__brand small { display: none; }
+  .nav__brand-full { display: none; }
+  .nav__brand-short { display: inline; }
   .nav__links { gap: var(--s-3); }
-  .nav__link { font-size: var(--fs-12); }
+  /* Nav links match the Résumé button's size on mobile */
+  .nav__link { font-size: var(--fs-14); }
 
   /* Collapse every multi-column grid to a single column on mobile */
   .hero__lower,
